@@ -4,7 +4,7 @@
     </br>
     <input v-model="entry" >
     <button @click="addEntryToList">Click Me!</button>
-    <div v-if="error">{{error}}</div>
+    <error ref="error"></error>
     <ul>
       <li v-for="item in list">{{ item }}</li>
     </ul>
@@ -12,13 +12,17 @@
 </template>
 
 <script>
+import error from './Error.vue';
+
 export default {
   name: 'test',
+  components: {
+    error
+  },
   data () {
     return {
       list: ['hello', 'and', 'welcome'],
-      entry: '',
-      error: ''
+      entry: ''
     }
   },
   methods: {
@@ -27,9 +31,8 @@ export default {
           this.list.push(this.entry);
           this.entry = '';
         } else {
-          this.error = 'Please input your list item.'
+          Event.$emit('setError', 'Please input your list item.');
         }
-        
       }
   }
 }
