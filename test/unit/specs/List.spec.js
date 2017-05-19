@@ -6,7 +6,7 @@ describe('List.vue', () => {
 
   it('renders data from the list', () => {
     const list = mount(List);
-    expect(test.text()).to.contain('play games')
+    expect(list.text()).to.contain('play games')
 
   })
 
