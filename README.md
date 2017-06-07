@@ -1,6 +1,10 @@
-# vue-tests
+# Vue JS Unit Tests
 
-> An example project to show testing in Vue JS
+This project contains a unit test for a simple to do list component. The project was set up using vue-cli and the tests are made with Mocha framework and run using Karma.
+
+When the app is running, you can navigate to localhost:8080/#/to-do to find the page for the to do list.
+
+I explain how the test works in my blog post: https://pub.scotch.io/@Lily-Rae/how-to-write-tests-for-vue-js
 
 ## Build Setup
 
@@ -19,12 +23,6 @@ npm run build --report
 
 # run unit tests
 npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
