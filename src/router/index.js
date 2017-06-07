@@ -14,8 +14,8 @@ export default new Router({
     },
     {
       path: '/to-do',
-      name: 'ToDoList',
+      name: 'ToDo',
       component: List
-    }
+    },
   ]
 })

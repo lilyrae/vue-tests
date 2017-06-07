@@ -2,7 +2,6 @@
   <div>
     <h1>My To Do List</h1>
     </br>
-    <!-- user can add new item to the list --> 
     <input v-model="newItem" >
     <button @click="addItemToList">Add</button>
     <ul>

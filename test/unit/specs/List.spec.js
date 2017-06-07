@@ -1,27 +1,44 @@
 import { mount } from 'avoriaz';
-import List from '@/components/List'
-import Vue from 'vue'
+import List from '@/components/List';
+import Vue from 'vue';
 
 describe('List.vue', () => {
 
-  it('renders data from the list', () => {
-    const list = mount(List);
-    expect(list.text()).to.contain('play games')
+  it('displays items from the list', () => {
+    const Constructor = Vue.extend(List);
+    const ListComponent = new Constructor().$mount();
 
+    expect(ListComponent.$el.textContent).to.contain('play games');
   })
 
-  it('adds new item to list on click', () => {
+  it('adds a new item to list on click', () => {
+    const Constructor = Vue.extend(List);
+    const ListComponent = new Constructor().$mount();
 
-    const list = mount(List);
-    list.setData({
-    	listItems: ['my', 'listItems'],
-    	newItem: 'mynewItem',
+    ListComponent.newItem = 'brush my teeth';
+
+    // simulate click event
+    const button = ListComponent.$el.querySelector('button');
+    const clickEvent = new window.Event('click');
+    button.dispatchEvent(clickEvent);
+    ListComponent._watcher.run();
+
+    // assert list contains new item
+    expect(ListComponent.$el.textContent).to.contain('brush my teeth');
+    expect(ListComponent.listItems).to.contain('brush my teeth');
+  })
+
+  it('adds new item to list on click with avoriaz', () => {
+    const ListComponent = mount(List);
+
+    ListComponent.setData({
+      newItem: 'brush my teeth',
     });
 
-    const button = list.find('button')[0];
-    button.simulate('click');
+    const button = ListComponent.find('button')[0];
+    button.dispatch('click');
 
-    expect(list.data().listItems).to.contain('mynewItem');
-    expect(list.data().newItem).to.equal('');
+    expect(ListComponent.text()).to.contain('brush my teeth');
+    expect(ListComponent.data().listItems).to.contain('brush my teeth');
   })
 })
