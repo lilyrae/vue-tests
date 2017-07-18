@@ -4,7 +4,7 @@ This project contains a unit test for a simple to do list component. The project
 
 When the app is running, you can navigate to localhost:8080/#/to-do to find the page for the to do list.
 
-I explain how the test works in my blog post: https://pub.scotch.io/@Lily-Rae/how-to-write-tests-for-vue-js
+I explain how the test works in my blog post: https://scotch.io/tutorials/how-to-write-a-unit-test-for-vuejs
 
 ## Build Setup
 
